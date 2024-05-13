@@ -55,7 +55,7 @@ const App = () => {
   return (
     <div className="wrap">
       <h1>Sol's Todo List</h1>
-      <form className="todoForm" type="submit">
+      <form onSubmit={addTodoHandler} className="todoForm" type="submit">
         <label>제목</label>
         <input
           type="text"
@@ -72,7 +72,7 @@ const App = () => {
             setBody(e.target.value);
           }}
         />
-        <Button onClick={addTodoHandler}>추가하기</Button>
+        <Button>추가하기</Button>
       </form>
       <div>
         <h2>Working</h2>
