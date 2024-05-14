@@ -24,7 +24,7 @@ const App = () => {
     e.preventDefault();
     if (title === "" || body === ""){
       alert('제목과 내용을 모두 채워주세요.')
-      return false;
+      return;
     }
     const newTodo = {
       id: new Date().getTime(),
