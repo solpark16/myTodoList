@@ -40,17 +40,16 @@ const App = () => {
     });
     setTodo(deletedTodo);
   };
-  const isDoneTodoHandler = ({ id, title, body, isDone }) => {
-    const submitTodo = todo.filter((todo)=>{
-      return todo.id != id;
-    });
-    const newTodo = {
-      id : id,
-      title : title,
-      body : body,
-      isDone : !isDone
-    }
-    setTodo([...submitTodo, newTodo])
+  const isDoneTodoHandler = ({ id, isDone }) => {
+    const changeStatus = todo.map((item)=>{
+      if (item.id === id){
+        return {
+          ...item, isDone : !isDone
+        }
+      }
+      return item;
+    })
+    setTodo(changeStatus)
   }
   return (
     <div className="wrap">
