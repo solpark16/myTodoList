@@ -1,118 +1,12 @@
-import React, { useState } from "react";
-import Todo from "./components/Todo";
-import Button from "./components/Button";
+import React from 'react'
+import TodoContainer from "./components/TodoContainer";
 
 const App = () => {
-  const [todo, setTodo] = useState([
-    {
-      id : new Date().getTime(),
-      title : "리액트 공부하기",
-      body: "리액트 기초를 공부해봅시다.",
-      isDone: false,
-    },
-    {
-      id : new Date().getTime() + 1,
-      title : "타입스크립트 공부하기",
-      body: "타입스크립트 기초를 공부해봅시다.",
-      isDone: false,
-    },
-  ]);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-
-  const addTodoHandler = (e) => {
-    e.preventDefault();
-    if (title === "" || body === ""){
-      alert('제목과 내용을 모두 채워주세요.')
-      return;
-    }
-    const newTodo = {
-      id: new Date().getTime(),
-      title: title,
-      body: body,
-      isDone: false,
-    };
-    setTodo([...todo, newTodo]);
-  };
-  const deleteTodoHandler = (id) => {
-    const deletedTodo = todo.filter((todo) => {
-      return todo.id != id;
-    });
-    setTodo(deletedTodo);
-  };
-  const isDoneTodoHandler = ({ id, isDone }) => {
-    const changeStatus = todo.map((item)=>{
-      if (item.id === id){
-        return {
-          ...item, isDone : !isDone
-        }
-      }
-      return item;
-    })
-    setTodo(changeStatus)
-  }
   return (
-    <div className="wrap">
-      <h1>Sol's Todo List</h1>
-      <form onSubmit={addTodoHandler} className="todoForm" type="submit">
-        <label>제목</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <label>내용</label>
-        <input
-          type="text"
-          value={body}
-          onChange={(e) => {
-            setBody(e.target.value);
-          }}
-        />
-        <Button>추가하기</Button>
-      </form>
-      <div>
-        <h2>Working</h2>
-        <ul>
-          {todo
-            .filter((todo) => {
-              return todo.isDone === false;
-            })
-            .map(function (todo) {
-              return (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  deleteTodoHandler={deleteTodoHandler}
-                  isDoneTodoHandler = {isDoneTodoHandler}
-                  text = "완료"
-                />
-              );
-            })}
-        </ul>
-        <h2>Done</h2>
-        <ul>
-          {todo
-            .filter((todo) => {
-              return todo.isDone === true;
-            })
-            .map(function (todo) {
-              return (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  deleteTodoHandler={deleteTodoHandler}
-                  isDoneTodoHandler = {isDoneTodoHandler}
-                  text = "취소"
-                />
-              );
-            })}
-        </ul>
-      </div>
-    </div>
-  );
-};
+    <>
+      <TodoContainer/>
+    </>
+  )
+}
 
-export default App;
+export default App

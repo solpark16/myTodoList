@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const Todo = ({ todo, deleteTodoHandler, isDoneTodoHandler, text }) => {
+const TodoItem = ({ todo, deleteTodoHandler, isDoneTodoHandler, text }) => {
   const { id, title, body } = todo;
   return (
     <li className="todoCard">
@@ -22,4 +22,4 @@ const Todo = ({ todo, deleteTodoHandler, isDoneTodoHandler, text }) => {
   );
 };
 
-export default Todo;
+export default TodoItem;
