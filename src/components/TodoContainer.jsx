@@ -22,7 +22,7 @@ const TodoContainer = () => {
 
   const addTodoHandler = (e) => {
     e.preventDefault();
-    if (title === "" || body === "") {
+    if (!title || !body) {
       alert("제목과 내용을 모두 채워주세요.");
       return;
     }
@@ -57,8 +57,23 @@ const TodoContainer = () => {
   return (
     <div className="wrap">
       <h1>Sol's Todo List</h1>
-      <TodoForm addTodoHandler={addTodoHandler} title={title} setTitle={setTitle} body={body} setBody={setBody} />
+      <TodoForm
+        addTodoHandler={addTodoHandler}
+        title={title}
+        setTitle={setTitle}
+        body={body}
+        setBody={setBody}
+      />
       <TodoList
+        title="Working"
+        isDone={false}
+        todo={todo}
+        deleteTodoHandler={deleteTodoHandler}
+        isDoneTodoHandler={isDoneTodoHandler}
+      />
+      <TodoList
+        title="Done"
+        isDone={true}
         todo={todo}
         deleteTodoHandler={deleteTodoHandler}
         isDoneTodoHandler={isDoneTodoHandler}
