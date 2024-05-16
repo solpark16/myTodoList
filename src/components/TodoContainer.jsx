@@ -38,7 +38,7 @@ const TodoContainer = () => {
   };
   const deleteTodoHandler = (id) => {
     const deletedTodo = todo.filter((todo) => {
-      return todo.id != id;
+      return todo.id !== id;
     });
     setTodo(deletedTodo);
   };
