@@ -4,8 +4,8 @@ import Button from "./Button";
 const TodoForm = ({ todo, setTodo }) => {
   const addTodoHandler = (e) => {
     e.preventDefault();
-    if (!title || !body) {
-      alert("제목과 내용을 모두 채워주세요.");
+    if (!title.trim() || !body.trim()) {
+      alert("제목과 내용을 모두 입력해주세요.");
       return;
     }
     const newTodo = {
