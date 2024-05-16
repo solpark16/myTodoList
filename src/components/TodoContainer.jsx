@@ -5,13 +5,13 @@ import TodoForm from "./TodoForm";
 const TodoContainer = () => {
   const [todo, setTodo] = useState([
     {
-      id: new Date().getTime(),
+      id: Date.now(),
       title: "리액트 공부하기",
       body: "리액트 기초를 공부해봅시다.",
       isDone: false,
     },
     {
-      id: new Date().getTime() + 1,
+      id: Date.now() + 1,
       title: "타입스크립트 공부하기",
       body: "타입스크립트 기초를 공부해봅시다.",
       isDone: false,
