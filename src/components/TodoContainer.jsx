@@ -33,6 +33,8 @@ const TodoContainer = () => {
       isDone: false,
     };
     setTodo([...todo, newTodo]);
+    setTitle("");
+    setBody("");
   };
   const deleteTodoHandler = (id) => {
     const deletedTodo = todo.filter((todo) => {
