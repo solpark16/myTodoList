@@ -67,6 +67,7 @@ const TodoContainer = () => {
       <TodoList
         title="Working"
         isDone={false}
+        btn="완료"
         todo={todo}
         deleteTodoHandler={deleteTodoHandler}
         isDoneTodoHandler={isDoneTodoHandler}
@@ -74,6 +75,7 @@ const TodoContainer = () => {
       <TodoList
         title="Done"
         isDone={true}
+        btn="취소"
         todo={todo}
         deleteTodoHandler={deleteTodoHandler}
         isDoneTodoHandler={isDoneTodoHandler}

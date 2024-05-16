@@ -4,6 +4,7 @@ import TodoItem from "./TodoItem";
 const TodoList = ({
   title,
   isDone,
+  btn,
   todo,
   deleteTodoHandler,
   isDoneTodoHandler,
@@ -23,7 +24,7 @@ const TodoList = ({
                 todo={todo}
                 deleteTodoHandler={deleteTodoHandler}
                 isDoneTodoHandler={isDoneTodoHandler}
-                text="완료"
+                text={btn}
               />
             );
           })}
