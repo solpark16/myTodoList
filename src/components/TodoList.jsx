@@ -1,17 +1,10 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({
-  title,
-  isDone,
-  btn,
-  todo,
-  deleteTodoHandler,
-  isDoneTodoHandler,
-}) => {
+const TodoList = ({ isDone, todo, deleteTodoHandler, toggleTodoHandler }) => {
   return (
     <>
-      <h2>{title}</h2>
+      <h2>{isDone ? "Done" : "Working"}</h2>
       <ul>
         {todo
           .filter((todo) => {
@@ -23,8 +16,8 @@ const TodoList = ({
                 key={todo.id}
                 todo={todo}
                 deleteTodoHandler={deleteTodoHandler}
-                isDoneTodoHandler={isDoneTodoHandler}
-                text={btn}
+                toggleTodoHandler={toggleTodoHandler}
+                text={isDone ? "취소" : "완료"}
               />
             );
           })}

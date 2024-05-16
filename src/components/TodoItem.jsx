@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const TodoItem = ({ todo, deleteTodoHandler, isDoneTodoHandler, text }) => {
+const TodoItem = ({ todo, deleteTodoHandler, toggleTodoHandler, text }) => {
   const { id, title, body } = todo;
   return (
     <li className="todoCard">
@@ -13,7 +13,7 @@ const TodoItem = ({ todo, deleteTodoHandler, isDoneTodoHandler, text }) => {
         </Button>
         <Button
           className="todoIsDoneBtn"
-          onClick={() => isDoneTodoHandler(todo)}
+          onClick={() => toggleTodoHandler(todo)}
         >
           {text}
         </Button>

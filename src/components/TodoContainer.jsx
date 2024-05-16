@@ -17,32 +17,13 @@ const TodoContainer = () => {
       isDone: false,
     },
   ]);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-
-  const addTodoHandler = (e) => {
-    e.preventDefault();
-    if (!title || !body) {
-      alert("제목과 내용을 모두 채워주세요.");
-      return;
-    }
-    const newTodo = {
-      id: new Date().getTime(),
-      title: title,
-      body: body,
-      isDone: false,
-    };
-    setTodo([...todo, newTodo]);
-    setTitle("");
-    setBody("");
-  };
   const deleteTodoHandler = (id) => {
     const deletedTodo = todo.filter((todo) => {
       return todo.id !== id;
     });
     setTodo(deletedTodo);
   };
-  const isDoneTodoHandler = ({ id, isDone }) => {
+  const toggleTodoHandler = ({ id, isDone }) => {
     const changeStatus = todo.map((item) => {
       if (item.id === id) {
         return {
@@ -57,28 +38,18 @@ const TodoContainer = () => {
   return (
     <div className="wrap">
       <h1>Sol's Todo List</h1>
-      <TodoForm
-        addTodoHandler={addTodoHandler}
-        title={title}
-        setTitle={setTitle}
-        body={body}
-        setBody={setBody}
-      />
+      <TodoForm todo={todo} setTodo={setTodo} />
       <TodoList
-        title="Working"
         isDone={false}
-        btn="완료"
         todo={todo}
         deleteTodoHandler={deleteTodoHandler}
-        isDoneTodoHandler={isDoneTodoHandler}
+        toggleTodoHandler={toggleTodoHandler}
       />
       <TodoList
-        title="Done"
         isDone={true}
-        btn="취소"
         todo={todo}
         deleteTodoHandler={deleteTodoHandler}
-        isDoneTodoHandler={isDoneTodoHandler}
+        toggleTodoHandler={toggleTodoHandler}
       />
     </div>
   );
