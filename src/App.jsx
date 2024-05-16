@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import TodoContainer from "./components/TodoContainer";
-
+import Layout from "./components/Layout";
 const App = () => {
   return (
-    <>
-      <TodoContainer/>
-    </>
-  )
-}
+    <Layout>
+      <TodoContainer />
+    </Layout>
+  );
+};
 
-export default App
+export default App;

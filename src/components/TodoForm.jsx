@@ -26,6 +26,7 @@ const TodoForm = ({ todo, setTodo }) => {
       <input
         type="text"
         value={title}
+        placeholder="제목을 입력해주세요."
         onChange={(e) => {
           setTitle(e.target.value);
         }}
@@ -34,6 +35,7 @@ const TodoForm = ({ todo, setTodo }) => {
       <input
         type="text"
         value={body}
+        placeholder="내용을 입력해주세요."
         onChange={(e) => {
           setBody(e.target.value);
         }}

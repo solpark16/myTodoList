@@ -36,7 +36,7 @@ const TodoContainer = () => {
     setTodo(changeStatus);
   };
   return (
-    <div className="wrap">
+    <>
       <h1>Sol's Todo List</h1>
       <TodoForm todo={todo} setTodo={setTodo} />
       <TodoList
@@ -51,7 +51,7 @@ const TodoContainer = () => {
         deleteTodoHandler={deleteTodoHandler}
         toggleTodoHandler={toggleTodoHandler}
       />
-    </div>
+    </>
   );
 };
 
