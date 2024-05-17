@@ -3,7 +3,7 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 const TodoContainer = () => {
-  const [todo, setTodo] = useState([
+  const [todos, setTodos] = useState([
     {
       id: Date.now(),
       title: "리액트 공부하기",
@@ -18,13 +18,13 @@ const TodoContainer = () => {
     },
   ]);
   const deleteTodoHandler = (id) => {
-    const deletedTodo = todo.filter((todo) => {
+    const deletedTodo = todos.filter((todo) => {
       return todo.id !== id;
     });
-    setTodo(deletedTodo);
+    setTodos(deletedTodo);
   };
   const toggleTodoHandler = ({ id, isDone }) => {
-    const changeStatus = todo.map((item) => {
+    const changeStatus = todos.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -33,21 +33,23 @@ const TodoContainer = () => {
       }
       return item;
     });
-    setTodo(changeStatus);
+    setTodos(changeStatus);
   };
+  const workingTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
   return (
     <>
       <h1>Sol's Todo List</h1>
-      <TodoForm todo={todo} setTodo={setTodo} />
+      <TodoForm todos={todos} setTodos={setTodos} />
       <TodoList
         isDone={false}
-        todo={todo}
+        todos={workingTodos}
         deleteTodoHandler={deleteTodoHandler}
         toggleTodoHandler={toggleTodoHandler}
       />
       <TodoList
         isDone={true}
-        todo={todo}
+        todos={doneTodos}
         deleteTodoHandler={deleteTodoHandler}
         toggleTodoHandler={toggleTodoHandler}
       />
